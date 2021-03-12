@@ -1,16 +1,16 @@
 import { assert } from "chai"
 
-import { QtumRPC } from "../QtumRPC"
+import { HtmlcoinRPC } from "../HtmlcoinRPC"
 
-export const rpcURL = process.env.QTUM_RPC || "http://qtum:test@localhost:3889"
+export const rpcURL = process.env.HTMLCOIN_RPC || "http://USER:PASSWORD@localhost:4889"
 
-export const rpc = new QtumRPC(rpcURL)
+export const rpc = new HtmlcoinRPC(rpcURL)
 
 export const repoData = require("../../solar.development.json")
 
 export async function generateBlock(n = 1) {
   // generate to a throwaway address
-  return rpc.rawCall("generatetoaddress", [n, "qUdPrkrdbmWD5m21mKEr5euZpFDsQHWzsG"])
+  return rpc.rawCall("generatetoaddress", [n, "hUdPrkrdbmWD5m21mKEr5euZpFDsQHWzsG"])
 }
 
 export async function assertThrow(
