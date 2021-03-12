@@ -1,4 +1,4 @@
-The QTUM JavaScript library for Smart Contract development.
+The HTMLCOIN JavaScript library for Smart Contract development.
 
 See [documentation](https://qtumproject.github.io/qtumjs-doc/).
 
@@ -9,18 +9,18 @@ See [companion tutorial](https://github.com/qtumproject/qtumbook/blob/master/en/
 # Install
 
 ```
-npm install qtumjs
+npm install htmlcoinjs
 ```
 
-This is a sample code snippet that transfer ERC20 tokens:
+This is a sample code snippet that transfer HRC20 tokens:
 
 ```js
-import { QtumRPC } from "qtumjs"
+import { HtmlcoinRPC } from "htmlcoinjs"
 
 const repoData = require("./solar.json")
-const qtum = new Qtum("http://qtum:test@localhost:3889", repoData)
+const htmlcoin = new Htmlcoin("http://USER:PASSWORD@localhost:3889", repoData)
 
-const myToken = qtum.contract(
+const myToken = htmlcoin.contract(
   "zeppelin-solidity/contracts/token/CappedToken.sol",
 )
 
@@ -45,27 +45,27 @@ The [full source code](https://github.com/qtumproject/qtumbook-mytoken-qtumjs-cl
 
 ```
 docker run -it --rm \
-  --name qtumjs \
+  --name htmlcoinjs \
   -v `pwd`:/dapp \
   -p 3889:3889 \
   hayeah/qtumportal
 ```
 
-Configure QTUM_RPC for deployment tool:
+Configure HTMLCOIN_RPC for deployment tool:
 
 Enter into container:
 
 ```
-docker exec -it qtumjs sh
+docker exec -it htmlcoinjs sh
 ```
 
 Generate initial blocks:
 
 ```
-qcli importprivkey cMbgxCJrTYUqgcmiC1berh5DFrtY1KeU4PXZ6NZxgenniF1mXCRk
-qcli generatetoaddress 600 qUbxboqjBRp96j3La8D1RYkyqx5uQbJPoW
+htmlcoin-cli importprivkey cMbgxCJrTYUqgcmiC1berh5DFrtY1KeU4PXZ6NZxgenniF1mXCRk
+htmlcoin-cli generatetoaddress 600 hUbxboqjBRp96j3La8D1RYkyqx5uQbJPoW
 
-qcli getbalance
+htmlcoin-cli getbalance
 
 2000000.00000000
 ```
@@ -73,8 +73,8 @@ qcli getbalance
 Deploy test contracts:
 
 ```
-export QTUM_RPC=http://qtum:test@localhost:3889
-export QTUM_SENDER=qUbxboqjBRp96j3La8D1RYkyqx5uQbJPoW
+export HTMLCOIN_RPC=http://qtum:test@localhost:3889
+export HTMLCOIN_SENDER=qUbxboqjBRp96j3La8D1RYkyqx5uQbJPoW
 
 sh deploy-test-contracts.sh
 ```
