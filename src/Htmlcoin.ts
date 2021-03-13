@@ -1,14 +1,14 @@
-import { QtumRPC } from "./QtumRPC"
+import { HtmlcoinRPC } from "./HtmlcoinRPC"
 import { IContractsRepoData, ContractsRepo } from "./ContractsRepo"
 import { Contract, IContractInfo } from "./Contract"
 
 /**
- * The `Qtum` class is an instance of the `qtumjs` API.
+ * The `Htmlcoin` class is an instance of the `htmlcoinjs` API.
  *
- * @param providerURL URL of the qtumd RPC service.
+ * @param providerURL URL of the htmlcoind RPC service.
  * @param repoData Information about Solidity contracts.
  */
-export class Qtum extends QtumRPC {
+export class Htmlcoin extends HtmlcoinRPC {
   private repo: ContractsRepo
 
   constructor(providerURL: string, repoData?: IContractsRepoData) {
