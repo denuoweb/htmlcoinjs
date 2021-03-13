@@ -1,4 +1,4 @@
-import { QtumRPCRaw } from "./QtumRPCRaw"
+import { HtmlcoinRPCRaw } from "./HtmlcoinRPCRaw"
 import { Hash } from "crypto"
 
 
@@ -55,7 +55,7 @@ export interface IRPCSendToContractRequest {
   datahex: string
 
   /**
-   * The amount in QTUM to send. eg 0.1, default: 0
+   * The amount in HTMLCOIN to send. eg 0.1, default: 0
    */
   amount?: number | string
 
@@ -65,12 +65,12 @@ export interface IRPCSendToContractRequest {
   gasLimit?: number
 
   /**
-   * Qtum price per gas unit, default: 0.00000001, min:0.00000001
+   * Htmlcoin price per gas unit, default: 0.00000001, min:0.00000001
    */
   gasPrice?: number | string
 
   /**
-   * The quantum address that will be used as sender.
+   * The HTMLCOIN address that will be used as sender.
    */
   senderAddress?: string
 
@@ -86,7 +86,7 @@ export interface IRPCSendToContractResult {
    */
   txid: string
   /**
-   * QTUM address of the sender.
+   * HTMLCOIN address of the sender.
    */
   sender: string
   /**
@@ -191,7 +191,7 @@ export interface IRPCGetTransactionReceiptRequest {
 }
 
 /**
- * Transaction receipt returned by qtumd
+ * Transaction receipt returned by htmlcoind
  */
 export interface IRPCGetTransactionReceiptBase {
   blockHash: string
@@ -255,7 +255,7 @@ export interface ILogFilter {
 }
 
 /**
- * The raw log data returned by qtumd, not ABI decoded.
+ * The raw log data returned by htmlcoind, not ABI decoded.
  */
 export interface ILogEntry extends IRPCGetTransactionReceiptBase {
   /**
@@ -312,7 +312,7 @@ export interface IPromiseCancel<T> extends Promise<T> {
   cancel: () => void
 }
 
-export class QtumRPC extends QtumRPCRaw {
+export class HtmlcoinRPC extends HtmlcoinRPCRaw {
   private _hasTxWaitSupport: boolean | undefined
 
   public getBlockChainInfo(): Promise<IGetBlockChainInfoResult> {
